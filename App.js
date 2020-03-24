@@ -1,19 +1,30 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <View>
+        <Text>Add a note title:</Text>
+        <TextInput style={styles.noteInput} placeholder='Title' />
+      </View>
+      <View>
+        <Text>Add a note body:</Text>
+        <TextInput style={styles.noteInput} placeholder='Body' />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    margin: 30,
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+  noteInput :{
+    borderColor: 'black',
+    borderWidth: 1,
+    paddingLeft: 5
+  }
 });

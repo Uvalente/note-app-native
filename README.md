@@ -1,3 +1,3 @@
-# Umberto Valente Portfolio App
+# Umberto Valente Note App
 
-Coding portfolio app created in React Native and Expo
+Note app created in React Native and Expo
