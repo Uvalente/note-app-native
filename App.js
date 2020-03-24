@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 export default function App() {
   const [enteredNoteTitle, setEnteredNoteTitle] = useState('')
   const [enteredNoteBody, setEnteredNoteBody] = useState('')
+  const [noteList, setNoteList] = useState([])
 
   const titleInputHandler = enteredTitle => {
     setEnteredNoteTitle(enteredTitle)
@@ -11,6 +12,10 @@ export default function App() {
 
   const bodyInputHandler = enteredBody => {
     setEnteredNoteBody(enteredBody)
+  }
+
+  const addNoteHandler = () => {
+    setNoteList(currentNoteList => [...currentNoteList, { title: enteredNoteTitle, body: enteredNoteBody }])
   }
 
   return (
@@ -34,7 +39,10 @@ export default function App() {
         />
       </View>
       <View>
-        <Button title='ADD' />
+        <Button
+          title='ADD'
+          onPress={addNoteHandler}
+        />
       </View>
     </View>
   );
