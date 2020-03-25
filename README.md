@@ -1,3 +1,5 @@
-# Umberto Valente Note App
+# Note App
 
-Note app created in React Native and Expo
+Small experiment in React Native and Expo.  
+You can add a note title and body, then save your note.  
+Pressing on a saved note will delete it.
