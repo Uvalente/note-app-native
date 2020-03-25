@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Blank Template",
+    "name": "Note App",
     "slug": "noteApp",
     "privacy": "public",
     "sdkVersion": "36.0.0",
