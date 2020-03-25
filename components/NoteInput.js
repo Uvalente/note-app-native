@@ -32,7 +32,7 @@ const NoteInput = props => {
           value={enteredNoteBody}
         />
       </View>
-      <View>
+      <View style={styles.button}>
         <Button
           title='ADD'
           onPress={props.onAddNote.bind(this, enteredNoteTitle, enteredNoteBody)}
@@ -47,6 +47,9 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
     paddingLeft: 5
+  },
+  button: {
+    marginTop: 10
   }
 })
 

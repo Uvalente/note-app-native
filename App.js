@@ -4,7 +4,7 @@ import NoteItem from './components/NoteItem';
 import NoteInput from './components/NoteInput';
 
 export default function App() {
- 
+
   const [noteList, setNoteList] = useState([])
 
   const addNoteHandler = (noteTitle, noteBody) => {
@@ -18,6 +18,12 @@ export default function App() {
     ])
   }
 
+  const deleteNoteHandler = (noteKey) => {
+    setNoteList(currentNoteList => {
+      return currentNoteList.filter((note) => note.key !== noteKey)
+    })
+  }
+
   return (
     <View style={styles.container}>
       <NoteInput
@@ -27,9 +33,12 @@ export default function App() {
         data={noteList}
         renderItem={noteItem =>
           <NoteItem
+            noteKey={noteItem.item.key}
             title={noteItem.item.title}
             body={noteItem.item.body}
-          />}
+            onDelete={deleteNoteHandler}
+          />
+        }
       />
     </View>
   );
