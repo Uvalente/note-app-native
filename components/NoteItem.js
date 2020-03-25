@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   noteContainer: {
     borderWidth: 1,
     borderColor: 'black',
-    marginVertical: 2
+    marginVertica: 10
   }
 })
 

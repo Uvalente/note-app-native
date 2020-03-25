@@ -1,57 +1,28 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput, FlatList } from 'react-native';
 import NoteItem from './components/NoteItem';
+import NoteInput from './components/NoteInput';
 
 export default function App() {
-  const [enteredNoteTitle, setEnteredNoteTitle] = useState('')
-  const [enteredNoteBody, setEnteredNoteBody] = useState('')
+ 
   const [noteList, setNoteList] = useState([])
 
-  const titleInputHandler = enteredTitle => {
-    setEnteredNoteTitle(enteredTitle)
-  }
-
-  const bodyInputHandler = enteredBody => {
-    setEnteredNoteBody(enteredBody)
-  }
-
-  const addNoteHandler = () => {
+  const addNoteHandler = (noteTitle, noteBody) => {
     setNoteList(currentNoteList => [
       ...currentNoteList,
       {
         key: currentNoteList.length.toString(),
-        title: enteredNoteTitle,
-        body: enteredNoteBody
+        title: noteTitle,
+        body: noteBody
       }
     ])
   }
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text>Add a note title:</Text>
-        <TextInput
-          style={styles.noteInput}
-          placeholder='Title'
-          onChangeText={titleInputHandler}
-          value={enteredNoteTitle}
-        />
-      </View>
-      <View>
-        <Text>Add a note body:</Text>
-        <TextInput
-          style={styles.noteInput}
-          placeholder='Body'
-          onChangeText={bodyInputHandler}
-          value={enteredNoteBody}
-        />
-      </View>
-      <View>
-        <Button
-          title='ADD'
-          onPress={addNoteHandler}
-        />
-      </View>
+      <NoteInput
+        onAddNote={addNoteHandler}
+      />
       <FlatList
         data={noteList}
         renderItem={noteItem =>
@@ -69,10 +40,5 @@ const styles = StyleSheet.create({
     margin: 30,
     flex: 1,
     backgroundColor: '#fff',
-  },
-  noteInput: {
-    borderColor: 'black',
-    borderWidth: 1,
-    paddingLeft: 5
   }
 });
